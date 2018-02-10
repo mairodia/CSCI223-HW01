@@ -6,13 +6,17 @@
 // Date: 2/5/2018
 // Class: CSCI 223F | T/R 4:30PM
 // Description:
-// 		This program reads integers from the user until the user is finished, and then displays
-//		the min and max integers.
+// 	This program reads integers from the user until the user is finished, and then 
+//	displays the min and max integers.
 // ===============================================================================================
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+
+// == main ========================================================================================
+//
+// ================================================================================================
 int main(void)
 {
 	int x, y, min, max;

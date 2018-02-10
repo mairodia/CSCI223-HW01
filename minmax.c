@@ -19,28 +19,29 @@
 // ================================================================================================
 int main(void)
 {
-	int x, y, min, max;
-	y = x;
+	int intVal, check, min, max;
+	check = intVal;
 	min = INT_MAX;
 	max = INT_MIN;
-	printf("Enter some integer values, EOF to quite...\n");
+	
+	printf("Enter some integer values, EOF to quit...\n");
 	for(;;)
 	{
-		if(1 != scanf("%d", &x))
+		if(1 != scanf("%d", &intVal))
 		{
 			printf("Error extracting an int from stdin, terminating program...\n");
 			break;
 		}
-		if(x >= max)
+		if(intVal >= max)
 		{
-			max = x;
+			max = intVal;
 		}
-		if(x <= min)
+		if(intVal <= min)
 		{
-			min = x;
+			min = intVal;
 		}
 	}
-	if(y == x)
+	if(check == intVal)
 	{
 		printf("No integer values were read from stdin.\n");
 	}

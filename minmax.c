@@ -14,39 +14,57 @@
 #include <stdlib.h>
 #include <limits.h>
 
+#define FALSE		0
+#define TRUE		0
+
 // == main ========================================================================================
 //
 // ================================================================================================
 int main(void)
 {
-	int x, y, min, max;
-	y = x;
-	min = INT_MAX;
-	max = INT_MIN;
-	printf("Enter some integer values, EOF to quite...\n");
-	for(;;)
+	auto int bDataRead = FALSE;
+	auto int intVal;
+	auto int min;
+	auto int max;
+	auto int result;
+	
+	printf("Enter some integer values, EOF to quit...\n");
+	
+	do	{
+			result = scanf("%d", &intVal);
+			if(1 != result)
+			{
+				break;
+			}
+			if(FALSE == bDataRead)
+			{
+				min = max = intVal;
+				bDataRead = TRUE;
+			}
+			else if(intVal < min)
+			{
+				min = intVal;
+			}
+			else if(intVal > max)
+			{
+				max = intVal;
+			}
+		} while (1);
+	
+	if(EOF != result)
 	{
-		if(1 != scanf("%d", &x))
-		{
-			printf("Error extracting an int from stdin, terminating program...\n");
-			break;
-		}
-		if(x >= max)
-		{
-			max = x;
-		}
-		if(x <= min)
-		{
-			min = x;
-		}
+		printf("Error extracting an int from stdin, terminating program...");
 	}
-	if(y == x)
+	
+	if(FALSE == bDataRead)
 	{
 		printf("No integer values were read from stdin.\n");
 	}
+	
 	else
 	{
 		printf("The minimum was %d and the maximum was %d\n", min, max);
 	}
+	
 	return 0;
-}
+} //end of main
